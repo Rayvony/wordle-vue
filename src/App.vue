@@ -310,11 +310,11 @@ header{
   color: white;
   font-size: 2rem;
   user-select: none;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.1s;
 }
 
 .material-symbols-sharp:hover{
-  transform: scale(1.25);
+  opacity: 0.5;
 }
 
 .light-theme .material-symbols-sharp{
