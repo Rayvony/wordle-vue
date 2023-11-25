@@ -162,6 +162,13 @@ function genResultGrid() {
     })
     .join('\n')
 }
+
+let isNightMode = ref(false);
+
+const toggleTheme = () => {
+  document.body.classList.toggle('light-theme');
+  isNightMode.value = !isNightMode.value;
+};
 </script>
 
 <template>
@@ -173,6 +180,9 @@ function genResultGrid() {
   </Transition>
   <header>
     <h1>Wordle</h1>
+        <span @click="toggleTheme" class="material-symbols-sharp">
+      {{ isNightMode ? 'clear_night' : 'brightness_5' }}
+    </span>
   </header>
   <div id="board">
     <div
@@ -273,6 +283,11 @@ function genResultGrid() {
 .tile.filled .front {
   border-color: #999;
 }
+
+.light-theme .tile.filled .front {
+  border: 1.9px solid #3a3a3c;
+  color: black;
+}
 .tile .back {
   transform: rotateX(180deg);
 }
@@ -282,6 +297,31 @@ function genResultGrid() {
 .tile.revealed .back {
   transform: rotateX(0deg);
 }
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.material-symbols-sharp{
+  position: fixed;
+  left: 90%; 
+  cursor: pointer;
+  color: white;
+  font-size: 2rem;
+  user-select: none;
+  transition: all 0.1s ease-in-out;
+}
+
+.material-symbols-sharp:hover{
+  transform: scale(1.25);
+}
+
+.light-theme .material-symbols-sharp{
+  color: black; 
+  font-size: 2rem;
+}
+
 
 @keyframes zoom {
   0% {
