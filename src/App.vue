@@ -168,6 +168,19 @@ let isNightMode = ref(false);
 const toggleTheme = () => {
   document.body.classList.toggle('light-theme');
   isNightMode.value = !isNightMode.value;
+
+  // add class to instantly change all buttons
+  const buttons = document.querySelectorAll('button');
+  buttons.forEach(button => {
+    button.classList.add('instant-transition');
+  });
+
+  // remove class to instantly change all buttons
+  setTimeout(() => {
+    buttons.forEach(button => {
+      button.classList.remove('instant-transition');
+    });
+  }, 100);
 };
 </script>
 

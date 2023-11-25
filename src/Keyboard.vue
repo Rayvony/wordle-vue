@@ -83,4 +83,8 @@ button:last-of-type {
 button.big {
   flex: 1.5;
 }
+
+button.instant-transition {
+  transition: none;
+}
 </style>
